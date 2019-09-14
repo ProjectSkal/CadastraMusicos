@@ -16,10 +16,6 @@
     <body style="padding-bottom: 30px;">
         <%@include  file="WEB-INF/menu.jspf"%>
         
-<!--<div align="center">
-<img src="som.jpeg" style= "height: 300px; width: 1500px">
-</div> !-->
-
 
 <header>
       <br>
