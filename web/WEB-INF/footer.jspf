@@ -1,0 +1,19 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<style>
+    .cor {
+       color: white;
+    }
+    .footer{
+        position: fixed;
+        bottom: 0px;
+        height: 50px;
+        width: 100%;
+    }   
+</style>
+<div id="clear"></div>
+<footer>
+  <div id="copyright" class="footer footer-copyright text-center py-3 bg-dark">
+      <p class="cor">&copy; Untitled. All rights reserved. | Grupo 4 | Praia Grande 2019</p>
+</div>
+</footer>

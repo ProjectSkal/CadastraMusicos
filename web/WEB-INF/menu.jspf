@@ -1,0 +1,41 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container">
+    <a class="navbar-brand" href="#"><h1>Grupo4</h1></a>
+    
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/AlbunsMusicas/home.jsp">Início</a>
+        </li>
+        <!-- Dropdown /ProjetoPOO03-->          
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Bandas
+            </a>
+            <div class="dropdown-menu">            
+                <a class="dropdown-item" href="/AlbunsMusicas/WEB-Bandas/cadastrarBandas.jsp">Cadastrar Bandas</a>
+                <a class="dropdown-item" href="/AlbunsMusicas/WEB-Bandas/listarBandas.jsp">Pesquisar Bandas</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Discos
+            </a>
+            <div class="dropdown-menu">            
+                <a class="dropdown-item" href="/AlbunsMusicas/WEB-Discos/cadastarDiscos.jsp">Cadastrar Discos</a>
+                <a class="dropdown-item" href="/AlbunsMusicas/WEB-Discos/listarDiscos.jsp">Pesquisar Discos</a>                              
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Músicas
+            </a>
+            <div class="dropdown-menu">            
+                <a class="dropdown-item" href="/AlbunsMusicas/WEB-MUSICAS/cadastarMusicas.jsp">Cadastrar Músicas</a>
+                <a class="dropdown-item" href="/AlbunsMusicas/WEB-MUSICAS/listarMusicas.jsp">Pesquisar Músicas</a>                            
+            </div>
+        </li>
+    </ul> 
+    </div>
+</nav>
