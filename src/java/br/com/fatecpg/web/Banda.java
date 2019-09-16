@@ -13,21 +13,13 @@ import java.util.ArrayList;
 public class Banda {
     private String nome;
     private String genero;
-    private static ArrayList<Album> albuns;
-
+   
     public Banda(String nome, String genero) {
         this.nome = nome;
         this.genero = genero;
     }
     
-    public static ArrayList<Album> getAlbuns() {
-        if (albuns == null) {
-            albuns = new ArrayList<>();
-            albuns.add(new Album("Meteora","Linkin Park",1999));
-        }        
-        return albuns;
-    }
-
+          
     public String getNome() {
         return nome;
     }

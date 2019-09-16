@@ -21,4 +21,15 @@ public class Gravadora {
         }        
         return bandas;
     }    
+    public static void addBandas (Banda b){
+        getBandas().add(b);
+    
+    }    
+    public static void setBandas (int cont, Banda b){
+        getBandas().set(cont, b);
+    }
+        
+    public static void removeBandas (int cont){
+        getBandas().remove(cont);
+    }
 }
