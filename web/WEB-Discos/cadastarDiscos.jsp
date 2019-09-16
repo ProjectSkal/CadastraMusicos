@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="br.com.fatecpg.web.Album"%>
+<%@page import="br.com.fatecpg.web.Banda"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +15,16 @@
         <title>Grupo 4 - Cadastrar Disco</title>
     </head>
     <body style="padding-bottom: 30px;">
+        <%
+        if (request.getParameter("salva") != null) {
+            int salva = Integer.parseInt(request.getParameter("salva"));
+            String nome = request.getParameter("nomedodisco");
+            String banda = request.getParameter("Banda");
+            int ano = Integer.parseInt(request.getParameter("Ano"));
+            Banda.getAlbuns().add(new Album(nome,banda,ano));
+            response.sendRedirect("/AlbunsMusicas/WEB-Discos/listarDiscos.jsp");
+        }
+        %>
         <%@include  file="../WEB-INF/menu.jspf"%>
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <h1 class="display-4"> Cadastrar Disco </h1>
@@ -44,6 +56,7 @@
             </div>
             <center>
                 <br>
+                <input type="hidden" name="salva" value="1">
                   <a href="../home.jsp"><button type="button" class="btn btn-dark">Cancelar</button></a>
                 <input type="submit" class="btn btn-dark" name="alterar" value="Alterar" />
             </center>

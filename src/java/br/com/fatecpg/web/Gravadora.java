@@ -20,6 +20,5 @@ public class Gravadora {
             bandas.add(new Banda("Linkin Park","Rock"));
         }        
         return bandas;
-    }
-    
+    }    
 }
