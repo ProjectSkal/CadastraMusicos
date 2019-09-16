@@ -39,8 +39,7 @@
                     <td><%= cont %></td>
                     <td><%= banda.getNome() %></td>
                     <td><%= banda.getGenero() %></td>
-                    <td>Alterar</td>
-                    
+                    <td><a href="/AlbunsMusicas/WEB-Bandas/alterarBandas.jsp?cod=<%=cont%>">Alterar</a></td>                    
                     <td><a href="/AlbunsMusicas/WEB-Bandas/excluirBandas.jsp?i=<%=cont%>">Excluir</a></td>
                 <tr>
                 <%}%>

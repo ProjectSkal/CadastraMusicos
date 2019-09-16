@@ -43,8 +43,8 @@
                     <td><%= album.getNome() %></td>
                     <td><%= album.getBanda() %></td>
                     <td><%= album.getAno() %></td>
-                    <td>Alterar</td>
-                     <td><a href="/AlbunsMusicas/WEB-Discos/excluirDiscos.jsp?i=<%=cont%>">Excluir</a></td>
+                    <td><a href="/AlbunsMusicas/WEB-Discos/alterarDiscos.jsp?cod=<%=cont%>">Alterar</a></td>
+                    <td><a href="/AlbunsMusicas/WEB-Discos/excluirDiscos.jsp?i=<%=cont%>">Excluir</a></td>
                 <tr>
                 <%}%>
                 <tbody>

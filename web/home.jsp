@@ -66,24 +66,24 @@
           </center>
         </div>
           <center>
-        <p>Repositório e Classes</p>
+        <p>Repositório, Classes e Create</p>
         </center>
       </div>
           
       <div class="column3"> 
           <div align="center">
            <div class="imagem">
-                <img src="ana.png">
+                <img src="jeff.jpg">
             </div>
           </div>
         <div class="title">
           <center>
               <br>
-          <h2>Ana Paula Augusto</h2>
+          <h2>Jefferson da Silva Mariano</h2>
           </center>
         </div>
           <center>
-        <p>Home, CSS, footer, links, menu</p>
+        <p>Update</p>
         </center>
       </div>
         
@@ -91,17 +91,17 @@
          <div class="column4"> 
           <div align="center">
            <div class="imagem">
-                <img src="ana.png">
+                <img src="cass.jpg">
             </div>
           </div>
         <div class="title">
           <center>
               <br>
-          <h2>Ana Paula Augusto</h2>
+          <h2>Cassiano Lucas</h2>
           </center>
         </div>
           <center>
-        <p>Home, CSS, footer, links, menu</p>
+        <p>Delete</p>
         </center>
       </div>
     </div>

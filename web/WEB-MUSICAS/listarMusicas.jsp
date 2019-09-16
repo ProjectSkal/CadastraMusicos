@@ -43,10 +43,10 @@
                 <tr>
                     <td><%= cont %></td>
                     <td><%= musica.getNome() %></td>
-                    <td><%= musica.getAlbum() %>min</td>
+                    <td><%= musica.getAlbum() %></td>
                     <td><%= musica.getBanda() %></td>
                     <td><%= musica.getAno() %></td>
-                    <td>Alterar</td>
+                    <td><a href="/AlbunsMusicas/WEB-MUSICAS/alterarMusicas.jsp?cod=<%=cont%>">Alterar</a></td>
                     <td><a href="/AlbunsMusicas/WEB-MUSICAS/excluirMusicas.jsp?i=<%=cont%>">Excluir</a></td>
                     
                 <tr>

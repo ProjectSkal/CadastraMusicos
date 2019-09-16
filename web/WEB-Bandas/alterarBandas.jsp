@@ -8,13 +8,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-if(request.getParameter("cancelar")!=null){
-    response.sendRedirect("/AlbunsMusicas/WEB-Bandas/listarBandas.jsp");
-   }if(request.getParameter("set")!=null){
-       int cont = Integer.parseInt(request.getParameter("cont"));
+if (request.getParameter("set")!=null) {
+       int cod = Integer.parseInt(request.getParameter("cod"));
        String nome = request.getParameter("nome");
-       String genero = request.getParameter("cpf");
-       Gravadora.getBandas().set(cont, new Banda(nome, genero));
+       String genero = request.getParameter("genero");
+       Gravadora.getBandas().set(cod, new Banda(nome, genero));
        response.sendRedirect("/AlbunsMusicas/WEB-Bandas/listarBandas.jsp");
    }
 %>
@@ -29,6 +27,8 @@ if(request.getParameter("cancelar")!=null){
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <h1 class="display-4"> Alterar Banda </h1>
         </div>
+        <%int cod = Integer.parseInt(request.getParameter("cod"));%>
+        <%Banda banda = Gravadora.getBandas().get(cod);%>
         
             <form class="container">
                 
@@ -37,17 +37,21 @@ if(request.getParameter("cancelar")!=null){
 
                     <div class="form-group col-md-6">
                       <label for="inputNome">Nome</label>
+                      <input type="text" class="form-control" name="nome" placeholder="Banda" value="<%= banda.getNome()%>" />
                     </div>
 
                     <div class="form-group col-md-6">
                       <label for="inputGênero">Gênero</label>
+                      <input type="text" class="form-control" name="genero" placeholder="Banda" value="<%= banda.getGenero()%>" />
                     </div>
+                    <input type="hidden" name="set" value="1">
+                    <input type="hidden" name="cod" value="<%=cod%>">
                 </div> 
                 <div class="form-group">
                 </div>
                 <center>
                     <br>
-                    <a href="../home.jsp"><button type="button" class="btn btn-dark">Cancelar</button></a>
+                    <a href="/AlbunsMusicas/WEB-Bandas/listarBandas.jsp"><button type="button" class="btn btn-dark">Cancelar</button></a>
                     <input type="submit" class="btn btn-dark" name="set" value="Alterar" />
                 </center>           
           </form>
