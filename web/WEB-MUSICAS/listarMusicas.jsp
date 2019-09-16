@@ -36,15 +36,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%for (Musica musica: Album.getMusicas()) {%>
+                <%for (Musica musica: Album.getMusicas()) {
+                
+                int cont = Album.getMusicas().indexOf(musica);
+                %>
                 <tr>
-                    <td><%= Album.getMusicas().indexOf(musica) %></td>
+                    <td><%= cont %></td>
                     <td><%= musica.getNome() %></td>
                     <td><%= musica.getAlbum() %>min</td>
                     <td><%= musica.getBanda() %></td>
                     <td><%= musica.getAno() %></td>
                     <td>Alterar</td>
-                    <td><a href="/excluirDiscos.jsp">Excluir</a></td>
+                    <td><a href="/AlbunsMusicas/WEB-MUSICAS/excluirMusicas.jsp?i=<%=cont%>">Excluir</a></td>
                     
                 <tr>
                 <%}%>

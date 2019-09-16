@@ -13,7 +13,7 @@
     <head>
         <%@include file="../WEB-INF/links.jspf" %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Grupo 4 - Excluir Pessoa</title>
+        <title>Grupo 4 - Excluir Banda</title>
     </head>
     <body style="padding-bottom: 30px;">
         <%@include  file="../WEB-INF/menu.jspf"%>
