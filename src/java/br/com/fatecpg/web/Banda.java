@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * @author luizv
  */
 public class Banda {
+    private static ArrayList<Album> album;
     private String nome;
     private String genero;
    
@@ -19,6 +20,15 @@ public class Banda {
         this.genero = genero;
     }
     
+    public static ArrayList<Album> getAlbuns() {
+        if (album == null) {
+            album = new ArrayList<>();
+            album.add(new Album("Meteora","Linkin Park",2003));
+            album.add(new Album("Living Things","Linkin Park",2012));
+            album.add(new Album("Minutes to Midnight","Linkin Park",2007));
+        }        
+        return album;        
+    }    
           
     public String getNome() {
         return nome;

@@ -45,7 +45,7 @@
                 
                 <div class="form-group col-md-6">
                   <label for="inputCNPJ">Ano</label>
-                  <input type="text" class="form-control" name="Ano" placeholder="Ano de lançamento" />
+                  <input type="number" class="form-control" name="Ano" placeholder="Ano de lançamento" />
                 </div>
                 
              
