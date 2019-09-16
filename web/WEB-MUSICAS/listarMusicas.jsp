@@ -44,7 +44,8 @@
                     <td><%= musica.getBanda() %></td>
                     <td><%= musica.getAno() %></td>
                     <td>Alterar</td>
-                    <td><span class="apagar">Excluir</span></td>
+                    <td><a href="/excluirDiscos.jsp">Excluir</a></td>
+                    
                 <tr>
                 <%}%>
                 </tbody>

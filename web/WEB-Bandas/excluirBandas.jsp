@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="br.com.fatecpg.web.Gravadora"%>
+<%@page import="br.com.fatecpg.web.Banda"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +20,15 @@
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <h1 class="display-4"> Excluir Pessoa </h1>
         </div>
+        
+             <%
+            int i = Integer.parseInt(request.getParameter("i"));
+            
+            if(request.getParameter("excluir")!=null){
+             Gravadora.getBandas().remove(i);
+              response.sendRedirect("/AlbunsMusicas/WEB-Bandas/listarBandas.jsp");
+        }
+        %>
            
             <form class="container">
                 
@@ -25,7 +36,9 @@
                 </div> 
                 
                 <center>
+                <input type="hidden" class="btn btn-dark" name="i" value="<%=i%>" />   
                 <input type="submit" class="btn btn-dark" name="excluir" value="Confirmar exclusão"/>
+                
                     <a href="../home.jsp"><button type="button" class="btn btn-dark">Cancelar</button></a>
                 </center>           
           </form>

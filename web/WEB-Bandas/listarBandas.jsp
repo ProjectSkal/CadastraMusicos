@@ -32,13 +32,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                <%for (Banda banda: Gravadora.getBandas()) {%>
+                <%for (Banda banda: Gravadora.getBandas()){
+                    int cont = Gravadora.getBandas().indexOf(banda);
+                    %>
                 <tr>
-                    <td><%= Gravadora.getBandas().indexOf(banda) %></td>
+                    <td><%= cont %></td>
                     <td><%= banda.getNome() %></td>
                     <td><%= banda.getGenero() %></td>
                     <td>Alterar</td>
-                    <td><span class="apagar">Excluir</span></td>
+                    
+                    <td><a href="/AlbunsMusicas/WEB-Bandas/excluirBandas.jsp?i=<%=cont%>">Excluir</a></td>
                 <tr>
                 <%}%>
                 </tbody>

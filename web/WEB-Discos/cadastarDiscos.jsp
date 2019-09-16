@@ -58,7 +58,7 @@
                 <br>
                 <input type="hidden" name="salva" value="1">
                   <a href="../home.jsp"><button type="button" class="btn btn-dark">Cancelar</button></a>
-                <input type="submit" class="btn btn-dark" name="alterar" value="Alterar" />
+                <input type="submit" class="btn btn-dark" name="alterar" value="Cadastrar" />
             </center>
             <br>            
           </form>
