@@ -33,8 +33,8 @@
                 </thead>
                 <tbody>
                 <%for (Banda banda: Gravadora.getBandas()){
-                    int cont = Gravadora.getBandas().indexOf(banda);
-                    %>
+                    int cont = Gravadora.getBandaIndex(banda);
+                %>
                 <tr>
                     <td><%= cont %></td>
                     <td><%= banda.getNome() %></td>

@@ -13,25 +13,21 @@ import java.util.ArrayList;
  */
 public class Album {
     
-    private static ArrayList<Musica> musicas;
+    private static ArrayList<Musica> musicas = new ArrayList<>();
     private String nome;
-    private String banda;
     private int ano;
 
-    public Album(String nome, String banda, int ano) {
+    public Album(String nome, int ano) {
         this.nome = nome;
-        this.banda = banda;
         this.ano = ano;
     }
     
-    public static ArrayList<Musica> getMusicas() {
-        if (musicas == null) {
-            musicas = new ArrayList<>();
-            musicas.add(new Musica("Numb","Meteora","Linkin Park",2003));
-            musicas.add(new Musica("Faint","Meteora","Linkin Park",2003));
-            musicas.add(new Musica("Session","Meteora","Linkin Park",2003));
-        }        
+    public static ArrayList<Musica> getMusicas() {     
         return musicas;        
+    }
+    
+    public void setMusicas(ArrayList<Musica> musicas) {     
+        this.musicas = musicas;        
     }
 
     public String getNome() {
@@ -42,20 +38,11 @@ public class Album {
         this.nome = nome;
     }
 
-    public String getBanda() {
-        return banda;
-    }
-
-    public void setBanda(String banda) {
-        this.banda = banda;
-    }
-
     public int getAno() {
         return ano;
     }
 
     public void setAno(int ano) {
         this.ano = ano;
-    } 
-    
+    }    
 }

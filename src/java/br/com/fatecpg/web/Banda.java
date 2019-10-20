@@ -11,24 +11,22 @@ import java.util.ArrayList;
  * @author luizv
  */
 public class Banda {
-    private static ArrayList<Album> album;
+    private static ArrayList<Album> albuns = new ArrayList<>();
     private String nome;
     private String genero;
-   
+
     public Banda(String nome, String genero) {
         this.nome = nome;
         this.genero = genero;
     }
     
-    public static ArrayList<Album> getAlbuns() {
-        if (album == null) {
-            album = new ArrayList<>();
-            album.add(new Album("Meteora","Linkin Park",2003));
-            album.add(new Album("Living Things","Linkin Park",2012));
-            album.add(new Album("Minutes to Midnight","Linkin Park",2007));
-        }        
-        return album;        
-    }    
+    public static ArrayList<Album> getAlbuns() {      
+        return albuns;        
+    }
+    
+    public void setAlbuns(ArrayList<Album> albuns) {
+        this.albuns = albuns;
+    }
           
     public String getNome() {
         return nome;

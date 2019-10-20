@@ -11,14 +11,10 @@ package br.com.fatecpg.web;
  */
 public class Musica {
     private String nome;
-    private String album;
-    private String banda;
     private int ano;
 
-    public Musica(String nome, String album, String banda, int ano) {
+    public Musica(String nome, int ano) {
         this.nome = nome;
-        this.album = album;
-        this.banda = banda;
         this.ano = ano;
     }
 
@@ -29,30 +25,12 @@ public class Musica {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public String getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(String album) {
-        this.album = album;
-    }
-
-    public String getBanda() {
-        return banda;
-    }
-
-    public void setBanda(String banda) {
-        this.banda = banda;
-    }
-
+    
     public int getAno() {
         return ano;
     }
 
     public void setAno(int ano) {
         this.ano = ano;
-    }
-    
-    
+    }  
 }
