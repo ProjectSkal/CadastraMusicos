@@ -9,6 +9,8 @@
 <!DOCTYPE html>
 <%
 int codigo = Integer.parseInt(request.getParameter("cod"));
+
+
 if (request.getParameter("set")!=null) {       
        String nome = request.getParameter("nome");
        String genero = request.getParameter("genero");

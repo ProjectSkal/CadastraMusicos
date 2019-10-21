@@ -10,6 +10,7 @@
 <%@page import="br.com.fatecpg.web.Disco"%>
 <!DOCTYPE html>
 <%
+    
 int codigo = Integer.parseInt(request.getParameter("cod"));
 if (request.getParameter("set")!=null) {
        String nome = request.getParameter("disco");
@@ -22,6 +23,7 @@ if (request.getParameter("set")!=null) {
        
        response.sendRedirect("/AlbunsMusicas/WEB-Discos/listarDiscos.jsp");
    }
+
 %>
 <html>
     <head>
