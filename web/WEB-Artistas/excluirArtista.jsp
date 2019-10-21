@@ -5,8 +5,8 @@
 --%>
 
 
-<%@page import="br.com.fatecpg.web.Gravadora"%>
-<%@page import="br.com.fatecpg.web.Banda"%>
+<%@page import="br.com.fatecpg.web.DB"%>
+<%@page import="br.com.fatecpg.web.Artista"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,16 +17,15 @@
     </head>
     <body style="padding-bottom: 30px;">
         <%@include  file="../WEB-INF/menu.jspf"%>
+        <% int i = Integer.parseInt(request.getParameter("i")); %>
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-            <h1 class="display-4"> Excluir Pessoa </h1>
+            <h1 class="display-4"> Excluir <%= DB.getArtista().get(i).getNome()%> </h1>
         </div>
         
-             <%
-            int i = Integer.parseInt(request.getParameter("i"));
-            
+             <%            
             if(request.getParameter("excluir")!=null){
-             Gravadora.getBandas().remove(i);
-              response.sendRedirect("/AlbunsMusicas/WEB-Bandas/listarBandas.jsp");
+             DB.getArtista().remove(i);
+              response.sendRedirect("/AlbunsMusicas/WEB-Artistas/listarArtistas.jsp");
         }
         %>
            
@@ -39,7 +38,7 @@
                 <input type="hidden" class="btn btn-dark" name="i" value="<%=i%>" />   
                 <input type="submit" class="btn btn-dark" name="excluir" value="Confirmar exclusão"/>
                 
-                    <a href="../home.jsp"><button type="button" class="btn btn-dark">Cancelar</button></a>
+                    <a href="/AlbunsMusicas/WEB-Artistas/listarArtistas.jsp"><button type="button" class="btn btn-dark">Cancelar</button></a>
                 </center>           
           </form>
                 <br>

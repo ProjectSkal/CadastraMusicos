@@ -5,17 +5,21 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.fatecpg.web.Gravadora"%>
-<%@page import="br.com.fatecpg.web.Banda"%>
-<%@page import="br.com.fatecpg.web.Album"%>
+<%@page import="br.com.fatecpg.web.DB"%>
+<%@page import="br.com.fatecpg.web.Artista"%>
+<%@page import="br.com.fatecpg.web.Disco"%>
 <!DOCTYPE html>
 <%
+int codigo = Integer.parseInt(request.getParameter("cod"));
 if (request.getParameter("set")!=null) {
-       int cod = Integer.parseInt(request.getParameter("cod"));
        String nome = request.getParameter("disco");
        int banda = Integer.parseInt(request.getParameter("Banda"));
        int ano = Integer.parseInt(request.getParameter("Ano"));
-       Banda.getAlbuns().set(cod, new Album(nome,banda,ano));
+       Artista artista = DB.getArtista().get(banda);
+       Disco disco = artista.getDiscos().get(codigo);
+       disco.setNome(nome);
+       disco.setAno(ano);
+       
        response.sendRedirect("/AlbunsMusicas/WEB-Discos/listarDiscos.jsp");
    }
 %>
@@ -27,11 +31,23 @@ if (request.getParameter("set")!=null) {
     </head>
     <body style="padding-bottom: 30px;">
         <%@include  file="../WEB-INF/menu.jspf"%>
+        <%Disco album = DB.getDiscos().get(codigo);%>
+        <%
+            int cod = 0;
+            String nome = "";
+            for (Artista banda: DB.getArtista()) {
+                if(banda == album.getArtista()) {
+                    cod = DB.getArtista().indexOf(banda);
+                    nome = banda.getNome();
+                }
+            }
+        %>
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <h1 class="display-4"> Alterar Disco </h1>
+            <h4 class="display-6"> Artista: <%=nome%></h4>
         </div>
-        <%int cod = Integer.parseInt(request.getParameter("cod"));%>
-        <%Album album = Banda.getAlbuns().get(cod);%>
+        
+        
 
         <form class="container">
            
@@ -41,20 +57,10 @@ if (request.getParameter("set")!=null) {
                   <input type="text" class="form-control" name="disco" placeholder="Nome do disco" value="<%= album.getNome()%>" />
                 </div>
 
-                <div class="form-group col-md-6">
-                    <label for="inputBanda">Banda</label>
-                    <select class="form-control" name="Banda" required>
-                        <option selected>Selecione um album</option>
-                        <%for (Banda banda: Gravadora.getBandas()){%>
-                        <option <%= (banda.getNome() == album.getNome()) ? "selected" : "" %> value="<%=Gravadora.getBandas().indexOf(banda)%>">
-                            <%= banda.getNome()%>
-                        </option>
-                        <%}%>
-                    </select>
-                  <input type="text" class="form-control" name="Banda" placeholder="Banda" value="<%= album.getBanda()%>"/>
-                </div>
+                <input type='hidden' name="Banda" value='<%=cod%>'>
+
                 <input type="hidden" name="set" value="1">
-                <input type="hidden" name="cod" value="<%=cod%>">
+                <input type="number" style='display:none' name="cod" value="<%=codigo%>">
                 <div class="form-group col-md-6">
                   <label for="inputAno">Ano</label>
                   <input type="text" class="form-control" name="Ano" placeholder="Ano de lançamento" value="<%= album.getAno()%>"/>

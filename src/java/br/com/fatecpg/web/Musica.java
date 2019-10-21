@@ -7,19 +7,26 @@ package br.com.fatecpg.web;
 
 /**
  *
- * @author luizv
+ * @author a
  */
 public class Musica {
     private String nome;
-    private int ano;
-
-    public Musica(String nome, int ano) {
+    private int duracao;
+    //construtor sem parametro
+    public Musica() {
+    }
+    //construtor com todos os parametros
+    public Musica(String nome, int duracao) {
         this.nome = nome;
-        this.ano = ano;
+        this.duracao = duracao;
     }
     
-    public Album getAlbum(){
-        return Gravadora.getAlbum(this);
+    public Disco getDisco(){
+        return DB.getDisco(this);
+    }
+    
+    public Artista getArtista (){
+        return getDisco().getArtista();
     }
 
     public String getNome() {
@@ -29,12 +36,12 @@ public class Musica {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    public int getAno() {
-        return ano;
+
+    public int getDuracao() {
+        return duracao;
     }
 
-    public void setAno(int ano) {
-        this.ano = ano;
-    }  
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
+    }
 }

@@ -5,10 +5,11 @@
 --%>
 
 
+<%@page import="java.util.Arrays"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.fatecpg.web.Gravadora"%>
-<%@page import="br.com.fatecpg.web.Banda"%>
-<%@page import="br.com.fatecpg.web.Album"%>
+<%@page import="br.com.fatecpg.web.DB"%>
+<%@page import="br.com.fatecpg.web.Artista"%>
+<%@page import="br.com.fatecpg.web.Disco"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,24 +28,24 @@
                 <thead>
                     <tr>
                         <th>Código</td>
-                        <th>Nome</td>
-                        <th>Banda</td>
+                        <th>Nome</td>                        
                         <th>Ano</td>
+                        <th>Banda</td>
                         <th></td>
                         <th></td>
                     </tr>
                 </thead>
                 <tbody>
-                <%for (Album album: Gravadora.getAlbuns()) {                
-                    int cont = Gravadora.getAlbuns().indexOf(album);
-                %>
+                
+                <%for (Disco disco: DB.getDiscos()) {%>
+                <% int cont = DB.getDiscos().indexOf(disco) ;%>
                 <tr>
                     <td><%= (cont + 1) %></td>
-                    <td><%= album.getNome() %></td>                    
-                    <td><%= album.getAno() %></td>
-                    <td><%= album.getBanda().getNome() %></td>
+                    <td><%= disco.getNome() %></td>                    
+                    <td><%= disco.getAno() %></td>
+                    <td><%= disco.getArtista().getNome() %></td>
                     <td><a href="/AlbunsMusicas/WEB-Discos/alterarDiscos.jsp?cod=<%=cont%>">Alterar</a></td>
-                    <td><a href="/AlbunsMusicas/WEB-Discos/excluirDiscos.jsp?i=<%=cont%>">Excluir</a></td>
+                    <td><a href="/AlbunsMusicas/WEB-Discos/excluirDiscos.jsp?i=<%=cont%>&artista=<%=DB.getArtista().indexOf(disco.getArtista())%>">Excluir</a></td>
                 <tr>
                 <%}%>
                 <tbody>

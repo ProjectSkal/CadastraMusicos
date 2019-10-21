@@ -6,8 +6,8 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.fatecpg.web.Gravadora"%>
-<%@page import="br.com.fatecpg.web.Album"%>
+<%@page import="br.com.fatecpg.web.DB"%>
+<%@page import="br.com.fatecpg.web.Disco"%>
 <%@page import="br.com.fatecpg.web.Musica"%>
 
 <!DOCTYPE html>
@@ -37,16 +37,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%for (Musica musica: Gravadora.getMusicas()) {                
-                    int cont = Gravadora.getMusicas().indexOf(musica);
+                <%for (Musica musica: DB.getMusicas()) {                
+                    int cont = DB.getMusicas().indexOf(musica);
                 %>
                 <tr>
                     <td><%= (cont + 1) %></td>
                     <td><%= musica.getNome() %></td>
-                    <td><%= musica.getAlbum().getNome() %></td>
-                    <td><%= musica.getAno() %></td>
+                    <td><%= musica.getDisco().getNome() %></td>
+                    <td><%= musica.getDisco().getArtista().getNome() %></td>
                     <td><a href="/AlbunsMusicas/WEB-MUSICAS/alterarMusicas.jsp?cod=<%=cont%>">Alterar</a></td>
-                    <td><a href="/AlbunsMusicas/WEB-MUSICAS/excluirMusicas.jsp?i=<%=cont%>">Excluir</a></td>                    
+                    <td><a href="/AlbunsMusicas/WEB-MUSICAS/excluirMusicas.jsp?i=<%=cont%>&disco=<%=DB.getDiscos().indexOf(musica.getDisco())%>">Excluir</a></td>                    
                 <tr>
                 <%}%>
                 </tbody>

@@ -11,11 +11,11 @@
         <!-- Dropdown /ProjetoPOO03-->          
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                Bandas
+                Artistas
             </a>
             <div class="dropdown-menu">            
-                <a class="dropdown-item" href="/AlbunsMusicas/WEB-Bandas/cadastrarBandas.jsp">Cadastrar Bandas</a>
-                <a class="dropdown-item" href="/AlbunsMusicas/WEB-Bandas/listarBandas.jsp">Pesquisar Bandas</a>
+                <a class="dropdown-item" href="/AlbunsMusicas/WEB-Artistas/cadastrarArtista.jsp">Cadastrar Bandas</a>
+                <a class="dropdown-item" href="/AlbunsMusicas/WEB-Artistas/listarArtistas.jsp">Pesquisar Bandas</a>
             </div>
         </li>
         <li class="nav-item dropdown">

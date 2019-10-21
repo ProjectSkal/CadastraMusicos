@@ -3,17 +3,21 @@
     Created on : 14/09/2019, 15:30:21
     Author     : MORDOR
 --%>
-<%@page import="br.com.fatecpg.web.Gravadora"%>
-<%@page import="br.com.fatecpg.web.Banda"%>
+<%@page import="br.com.fatecpg.web.DB"%>
+<%@page import="br.com.fatecpg.web.Artista"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-if (request.getParameter("set")!=null) {
-       int cod = Integer.parseInt(request.getParameter("cod"));
+int codigo = Integer.parseInt(request.getParameter("cod"));
+if (request.getParameter("set")!=null) {       
        String nome = request.getParameter("nome");
        String genero = request.getParameter("genero");
-       Gravadora.getBandas().set(cod, new Banda(nome, genero));
-       response.sendRedirect("/AlbunsMusicas/WEB-Bandas/listarBandas.jsp");
+       int ano = Integer.parseInt(request.getParameter("ano"));
+       Artista artista = DB.getArtista().get(codigo);
+       artista.setNome(nome);
+       artista.setGenero(genero);
+       artista.setAno(ano);
+       response.sendRedirect("/AlbunsMusicas/WEB-Artistas/listarArtistas.jsp");
    }
 %>
 <html>
@@ -28,7 +32,7 @@ if (request.getParameter("set")!=null) {
             <h1 class="display-4"> Alterar Banda </h1>
         </div>
         <%int cod = Integer.parseInt(request.getParameter("cod"));%>
-        <%Banda banda = Gravadora.getBandas().get(cod);%>
+        <%Artista artista = DB.getArtista().get(codigo);%>
         
             <form class="container">
                 
@@ -37,21 +41,26 @@ if (request.getParameter("set")!=null) {
 
                     <div class="form-group col-md-6">
                       <label for="inputNome">Nome</label>
-                      <input type="text" class="form-control" name="nome" placeholder="Banda" value="<%= banda.getNome()%>" />
+                      <input type="text" class="form-control" name="nome" placeholder="Banda" value="<%= artista.getNome()%>" />
                     </div>
 
                     <div class="form-group col-md-6">
                       <label for="inputGênero">Gênero</label>
-                      <input type="text" class="form-control" name="genero" placeholder="Banda" value="<%= banda.getGenero()%>" />
+                      <input type="text" class="form-control" name="genero" placeholder="Banda" value="<%= artista.getGenero()%>" />
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                      <label for="inputGênero">Ano</label>
+                      <input type="number" class="form-control" name="ano" placeholder="Ano de Criação" value="<%= artista.getAno()%>" />
                     </div>
                     <input type="hidden" name="set" value="1">
-                    <input type="hidden" name="cod" value="<%=cod%>">
+                    <input type="hidden" name="cod" value="<%=codigo%>">
                 </div> 
                 <div class="form-group">
                 </div>
                 <center>
                     <br>
-                    <a href="/AlbunsMusicas/WEB-Bandas/listarBandas.jsp"><button type="button" class="btn btn-dark">Cancelar</button></a>
+                    <a href="/AlbunsMusicas/WEB-Artistas/listarArtistas.jsp"><button type="button" class="btn btn-dark">Cancelar</button></a>
                     <input type="submit" class="btn btn-dark" name="set" value="Alterar" />
                 </center>           
           </form>

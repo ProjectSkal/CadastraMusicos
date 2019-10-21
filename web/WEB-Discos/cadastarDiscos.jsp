@@ -5,9 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.fatecpg.web.Gravadora"%>
-<%@page import="br.com.fatecpg.web.Album"%>
-<%@page import="br.com.fatecpg.web.Banda"%>
+<%@page import="br.com.fatecpg.web.DB"%>
+<%@page import="br.com.fatecpg.web.Disco"%>
+<%@page import="br.com.fatecpg.web.Artista"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,11 +18,11 @@
     <body style="padding-bottom: 30px;">
         <%
         if (request.getParameter("salva") != null) {
-            int salva = Integer.parseInt(request.getParameter("salva"));
             String nome = request.getParameter("nomedodisco");
-            int banda = Integer.parseInt(request.getParameter("Banda"));
+            int codigoBanda = Integer.parseInt(request.getParameter("Banda"));
             int ano = Integer.parseInt(request.getParameter("Ano"));
-            Banda.getAlbuns().add(new Album(nome,banda,ano));
+            Artista artista = DB.getArtista().get(codigoBanda);
+            artista.getDiscos().add(new Disco(nome,ano));
             response.sendRedirect("/AlbunsMusicas/WEB-Discos/listarDiscos.jsp");
         }
         %>
@@ -43,9 +43,9 @@
                     <label for="inputRazaoSocial">Banda</label>
                     <select class="form-control" name="Banda" required>
                         <option selected>Selecione um album</option>
-                        <%for (Banda banda: Gravadora.getBandas()){%>
-                        <option value="<%=Gravadora.getBandas().indexOf(banda)%>">
-                            <%= banda.getNome()%>
+                        <%for (Artista artista: DB.getArtista()){%>
+                        <option value="<%=DB.getArtista().indexOf(artista)%>">
+                            <%= artista.getNome()%>
                         </option>
                         <%}%>
                     </select>

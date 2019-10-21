@@ -5,16 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.fatecpg.web.Banda"%>
-<%@page import="br.com.fatecpg.web.Album"%>
+<%@page import="br.com.fatecpg.web.DB"%>
+<%@page import="br.com.fatecpg.web.Disco"%>
 <%@page import="br.com.fatecpg.web.Musica"%>
 
 <%if (request.getParameter("salva") != null) {
     int salva = Integer.parseInt(request.getParameter("salva"));
     String nome = request.getParameter("musica");
     int album = Integer.parseInt(request.getParameter("Disco"));
-    int ano = Integer.parseInt(request.getParameter("Ano"));
-    Album.getMusicas().add(new Musica(nome,album,ano));
+    int duracao = Integer.parseInt(request.getParameter("duracao"));
+    Disco disco = DB.getDiscos().get(album);
+    disco.getMusicas().add(new Musica(nome,duracao));
     response.sendRedirect("/AlbunsMusicas/WEB-MUSICAS/listarMusicas.jsp");
 }%>
 <!DOCTYPE html>
@@ -42,17 +43,17 @@
                     <label for="inputBanda">Disco</label>
                     <select class="form-control" name="Disco" required>                            
                         <option selected>Selecione um album</option>
-                        <%for (Album album: Banda.getAlbuns()) { %>
-                        <option value="<%=Banda.getAlbuns().indexOf(album)%>">
-                            <%= album.getNome() %>
+                        <%for (Disco disco: DB.getDiscos()) { %>
+                        <option value="<%=DB.getDiscos().indexOf(disco)%>">
+                            <%= disco.getNome() + " - " + disco.getArtista().getNome() %>
                         </option>
                         <%}%>
                     </select>
                 </div>
                 
                 <div class="form-group col-md-6">
-                    <label for="inputAno">Ano</label>
-                    <input type="number" class="form-control" name="Ano" placeholder="Ano de lançamento" required/>
+                    <label for="inputAno">Duração</label>
+                    <input type="number" class="form-control" name="duracao" placeholder="Tempo de duração em segundos" required/>
                 </div>                
             </div> 
             <center>

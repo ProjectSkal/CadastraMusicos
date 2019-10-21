@@ -9,30 +9,26 @@ import java.util.ArrayList;
 
 /**
  *
- * @author luizv
+ * @author a
  */
-public class Album {
-    
-    private static ArrayList<Musica> musicas = new ArrayList<>();
+public class Disco {
     private String nome;
     private int ano;
 
-    public Album(String nome, int ano) {
+    private ArrayList<Musica> musicas = new ArrayList<>();
+    //construtor sem parametro
+    public Disco() {
+    }
+    //construtor com todos os parametros
+    public Disco(String nome, int ano) {
         this.nome = nome;
         this.ano = ano;
     }
-    
-    public Banda getBanda() {
-        return Gravadora.getBanda(this);
-    }
-    
-    public static ArrayList<Musica> getMusicas() {     
-        return musicas;        
-    }
-    
-    public void setMusicas(ArrayList<Musica> musicas) {     
-        this.musicas = musicas;        
-    }
+    //referencia pra ficar mais facil usar o metodo do disco
+    public Artista getArtista()
+    {
+        return DB.getArtista(this);
+    }  
 
     public String getNome() {
         return nome;
@@ -48,5 +44,14 @@ public class Album {
 
     public void setAno(int ano) {
         this.ano = ano;
-    }    
+    }
+
+    public ArrayList<Musica> getMusicas() {
+        return musicas;
+    }
+
+    public void setMusicas(ArrayList<Musica> musicas) {
+        this.musicas = musicas;
+    }
+    
 }

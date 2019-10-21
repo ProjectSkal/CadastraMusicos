@@ -4,9 +4,11 @@
     Author     : MORDOR
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.fatecpg.web.Gravadora"%>
-<%@page import="br.com.fatecpg.web.Banda"%>
+<%@page import="br.com.fatecpg.web.DB"%>
+<%@page import="br.com.fatecpg.web.Artista"%>
+<%@page import="br.com.fatecpg.web.Disco"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,26 +26,25 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Código</td>
-                        <th>Nome</td>
+                        <th>#</th>
+                        <th>Banda</td>
                         <th>Genero</td>
+                        <th>Ano</td>
                         <th></td>
                         <th></td>
                     </tr>
                 </thead>
-                <tbody>
-                <%for (Banda banda: Gravadora.getBanda()){
-                    int cont = Gravadora.getBandaIndex(banda);
-                %>
-                <tr>
-                    <td><%= (cont + 1) %></td>
-                    <td><%= banda.getNome() %></td>
-                    <td><%= banda.getGenero() %></td>
-                    <td><a href="/AlbunsMusicas/WEB-Bandas/alterarBandas.jsp?cod=<%=cont%>">Alterar</a></td>                    
-                    <td><a href="/AlbunsMusicas/WEB-Bandas/excluirBandas.jsp?i=<%=cont%>">Excluir</a></td>
-                <tr>
-                <%}%>
+                <% for (Artista artista: DB.getArtista()) {%>
+                <tbody>                
+                <% int count = DB.getArtistaIndex(artista);%>
+                <td><%= (count + 1)%></td>
+                <td><%= artista.getNome()%></td>
+                <td><%= artista.getGenero()%></td>
+                <td><%= artista.getAno()%></td>
+                <td><a href="/AlbunsMusicas/WEB-Artistas/alterarArtista.jsp?cod=<%=count%>">Alterar</a></td>                    
+                <td><a href="/AlbunsMusicas/WEB-Artistas/excluirArtista.jsp?i=<%=count%>">Excluir</a></td>
                 </tbody>
+                <%}%>
             </table>
         </div>
  
