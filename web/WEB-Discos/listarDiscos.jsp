@@ -27,12 +27,12 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Código</td>
-                        <th>Nome</td>                        
-                        <th>Ano</td>
-                        <th>Banda</td>
-                        <th></td>
-                        <th></td>
+                        <th>Código</th>
+                        <th>Nome</th>                        
+                        <th>Ano</th>
+                        <th>Banda</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
