@@ -6,6 +6,7 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="br.com.fatecpg.web.Gravadora"%>
 <%@page import="br.com.fatecpg.web.Album"%>
 <%@page import="br.com.fatecpg.web.Musica"%>
 
@@ -36,13 +37,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%for (Musica musica: Album.getMusicas()) {                
-                    int cont = Album.getMusicas().indexOf(musica);
+                <%for (Musica musica: Gravadora.getMusicas()) {                
+                    int cont = Gravadora.getMusicas().indexOf(musica);
                 %>
                 <tr>
-                    <td><%= cont %></td>
+                    <td><%= (cont + 1) %></td>
                     <td><%= musica.getNome() %></td>
-                    <td><%= musica.getAlbum() %></td>
+                    <td><%= musica.getAlbum().getNome() %></td>
                     <td><%= musica.getAno() %></td>
                     <td><a href="/AlbunsMusicas/WEB-MUSICAS/alterarMusicas.jsp?cod=<%=cont%>">Alterar</a></td>
                     <td><a href="/AlbunsMusicas/WEB-MUSICAS/excluirMusicas.jsp?i=<%=cont%>">Excluir</a></td>                    

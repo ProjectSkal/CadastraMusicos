@@ -32,11 +32,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                <%for (Banda banda: Gravadora.getBandas()){
+                <%for (Banda banda: Gravadora.getBanda()){
                     int cont = Gravadora.getBandaIndex(banda);
                 %>
                 <tr>
-                    <td><%= cont %></td>
+                    <td><%= (cont + 1) %></td>
                     <td><%= banda.getNome() %></td>
                     <td><%= banda.getGenero() %></td>
                     <td><a href="/AlbunsMusicas/WEB-Bandas/alterarBandas.jsp?cod=<%=cont%>">Alterar</a></td>                    

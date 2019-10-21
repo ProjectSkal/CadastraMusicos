@@ -17,6 +17,10 @@ public class Musica {
         this.nome = nome;
         this.ano = ano;
     }
+    
+    public Album getAlbum(){
+        return Gravadora.getAlbum(this);
+    }
 
     public String getNome() {
         return nome;

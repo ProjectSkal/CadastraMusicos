@@ -22,6 +22,10 @@ public class Album {
         this.ano = ano;
     }
     
+    public Banda getBanda() {
+        return Gravadora.getBanda(this);
+    }
+    
     public static ArrayList<Musica> getMusicas() {     
         return musicas;        
     }
